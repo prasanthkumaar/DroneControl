@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Drone Control</string>
+    <string name="app_version">1.1</string>
+
+
+    <string name="title_activity_demo">GSDemoActivity</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="product_information">Product Information</string>
+    <string name="connection_loose">Status: No Product Connected</string>
+    <string name="sdk_version">DJI SDK Version: %1$s</string>
+
+    //connection_activity----------------------------------------------------------------
+
+    <string name="connected">Connected to\nDJI %1$s</string>
+    <string name="connecting">Connecting to\nDJI Drone</string>
+    <string name="version_control">DJI SDK v %1$s | Drone Control v %2$s</string>
+    <string name="connecting_message">Turn on the drone and remote control.\nConnect the phone to the remote control.</string>
+    <string name="launch_page_button">START</string>
+
+
+    //main_activity-----------------------------------------------------------------------
+
+    //waypoint mission panel states
+    <string name="panel_title_waypoint_manager">Waypoint Manager</string>
+    <string name="panel_title_flight_plan_uploaded">Flight Plan Uploaded</string>
+    <string name="panel_title_flight_ongoing">Flight Ongoing</string>
+    <string name="panel_title_flight_stopped">Flight Stopped</string>
+
+    //waypoint mission panel subtitle
+    <string name="subtitle_no_waypoints_created">No waypoints created</string>
+    <string name="subtitle_tap_map_message">Tap on map to create a waypoint for the drone. There needs to be at least 2 markers.</string>
+
+    //waypoint mission panel buttons
+    <string name="button_add_waypoint">Add Waypoint</string>
+    <string name="button_back">Back</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_next">Next</string>
+    <string name="button_back_to_waypoint">Back To Waypoint Manager</string>
+    <string name="button_start_flight">Start Flight</string>
+    <string name="button_stop_flight">Stop Flight</string>
+    <string name="button_restart_flight">Restart Flight</string>
+
+
+    //config_dialog
+    <string name="button_upload">Upload</string>
+    <string name="button_cancel_configuration">Cancel</string>
+    <string name="config_settings_title">Flight Configuration</string>
+    <string name="config_settings_speed">SPEED</string>
+    <string name="config_settings_post_flight_action">POST-FLIGHT ACTION</string>
+    <string name="config_settings_heading">HEADING</string>
+
+
+</resources>

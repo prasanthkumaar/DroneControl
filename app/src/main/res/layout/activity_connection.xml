@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/launch_page_background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/launch_page_reference"
+        android:visibility="invisible"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/btn_open"
+        android:orientation="vertical"
+        android:layout_marginBottom="48dp">
+
+        <ImageView
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/launch_page_icon" />
+
+
+        <TextView
+            android:id="@+id/launch_page_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textAlignment="center"
+            android:text="@string/connecting"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/sf_semibold"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/launch_page_subtitle"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sf_regular"
+            android:text="@string/connecting_message"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_above="@+id/version_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="0dp"
+        android:background="@color/colorWhite"
+        android:text="@string/launch_page_button"
+        android:textColor="@color/colorBlack"
+        android:fontFamily="@font/sf_semibold"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/version_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="32dp"
+        android:layout_marginBottom="31dp"
+        android:fontFamily="@font/sf_regular"
+        android:gravity="center"
+        android:text="@string/version_control"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp" />
+
+
+
+</RelativeLayout>

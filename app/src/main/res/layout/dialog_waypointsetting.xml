@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="660dp"
+    android:layout_height="310dp"
+    android:background="@color/colorTransparent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:src="@drawable/config_settings_reference"/>
+
+    <LinearLayout
+        android:layout_width="660dp"
+        android:layout_height="310dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="32dp"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        android:paddingVertical="32dp"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:layout_marginEnd="27dp"
+
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/config_settings_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/config_settings_title"
+                android:fontFamily="@font/sf_semibold"
+                android:textColor="@color/colorBlack"
+                android:textSize="22sp"/>
+
+            <LinearLayout
+                android:id="@+id/config_settings_altitude_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/config_settings_title"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_regular"
+                    android:textColor="@color/colorLightGrayLine"
+                    android:text="ALTITUDE:"
+                android:textSize="@dimen/config_settings_caps_text">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/altitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="@dimen/config_settings_caps_text"
+                    android:text="40"
+                    android:textColor="@color/colorLightGrayLine"
+                    >
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/config_settings_caps_text"
+                    android:layout_marginLeft="1dp"
+                    android:text="M"
+                    android:textColor="@color/colorLightGrayLine"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/altitude_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/config_settings_altitude_textview"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="-20dp"
+                android:max="60"
+                android:min="0"
+                android:progress="10"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_upload_flight_configuration"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="4dp"
+                    android:background="@color/colorBlack"
+                    android:text="@string/button_upload"
+                    android:fontFamily="@font/sf_semibold"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"
+                    android:visibility="visible"/>
+
+
+
+                <Button
+                    android:id="@+id/btn_cancel_flight_configuration"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="4dp"
+                    android:background="@color/colorBlack"
+                    android:text="@string/button_cancel_configuration"
+                    android:fontFamily="@font/sf_semibold"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"
+                    android:visibility="visible"/>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:visibility="visible"
+            android:layout_weight="1">
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_regular"
+                    android:textColor="@color/colorLightGrayLine"
+                    android:text="@string/config_settings_speed"
+                    android:textSize="@dimen/config_settings_caps_text">
+                </TextView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLightGrayLine"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/speed">
+                    <RadioButton
+                        android:id="@+id/lowSpeed"
+                        android:text="Low"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="true"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        />
+                    <RadioButton
+                        android:id="@+id/MidSpeed"
+                        android:text="Medium"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        />
+                    <RadioButton
+                        android:id="@+id/HighSpeed"
+                        android:text="High"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        />
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_regular"
+                    android:textColor="@color/colorLightGrayLine"
+                    android:text="@string/config_settings_post_flight_action"
+                    android:textSize="@dimen/config_settings_caps_text">
+                    >
+                </TextView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLightGrayLine"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/actionAfterFinished">
+
+                    <RadioButton
+                        android:id="@+id/finishNone"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="true"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="None"/>
+                    <RadioButton
+                        android:id="@+id/finishGoHome"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="Go Home"/>
+                    <RadioButton
+                        android:id="@+id/finishAutoLanding"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="Auto Land"/>
+                    <RadioButton
+                        android:id="@+id/finishToFirst"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="Back To 1st"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_regular"
+                    android:textColor="@color/colorLightGrayLine"
+                    android:text="@string/config_settings_heading"
+                    android:textSize="@dimen/config_settings_caps_text">
+                </TextView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLightGrayLine"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/heading">
+                    <RadioButton
+                        android:id="@+id/headingNext"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="true"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="Auto"/>
+                    <RadioButton
+                        android:id="@+id/headingInitDirec"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="Initial"/>
+                    <RadioButton
+                        android:id="@+id/headingRC"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="RC Control"/>
+                    <RadioButton
+                        android:id="@+id/headingWP"
+                        android:textSize="10sp"
+                        android:paddingVertical="8dp"
+                        android:checked="false"
+                        android:background="@drawable/radio_flat_selector"
+                        android:textColor="@color/colorWhite"
+                        android:button="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/sf_regular"
+                        android:text="Use Waypoint"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>
