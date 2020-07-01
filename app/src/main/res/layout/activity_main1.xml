@@ -10,6 +10,7 @@
     tools:context="sg.gov.dsta.DroneControl.MainActivity">
 
 
+
     <!-- map layout-->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,162 +22,8 @@
             android:id="@+id/map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="-30dp"
             class="com.google.android.gms.maps.SupportMapFragment" />
-
-    </RelativeLayout>
-
-
-
-    <!-- panel layout-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/waypoint_manager_relative_layout"
-        android:padding="16dp">
-
-        <LinearLayout
-            android:id="@+id/waypoint_manager_linear_layout"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorBlackTranslucent"
-            android:padding="16dp"
-            android:layout_alignParentBottom="true"
-            android:animateLayoutChanges="true"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/panel_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/panel_title_waypoint_manager"
-                android:textColor="@color/colorWhite"
-                android:fontFamily="@font/sf_semibold"
-                android:textSize="22sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGrayLine"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"/>
-
-            <TextView
-                android:id="@+id/panel_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
-                android:text="@string/subtitle_no_waypoints_created"
-                android:textColor="@color/colorWhite"
-                android:fontFamily="@font/sf_regular"
-                android:textSize="15sp"/>
-
-            <Button
-                android:id="@+id/btn_add_waypoint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorWhite"
-                android:text="@string/button_add_waypoint"
-                android:fontFamily="@font/sf_semibold"
-                android:textSize="15sp"
-                android:textAllCaps="false"
-                android:visibility="visible" />
-
-            <Button
-                android:id="@+id/btn_back_to_default_state"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorDarkGrayButton"
-                android:text="@string/button_back"
-                android:fontFamily="@font/sf_semibold"
-                android:textSize="15sp"
-                android:textColor="@color/colorWhite"
-                android:textAllCaps="false"
-                android:visibility="gone" />
-
-
-            <LinearLayout
-                android:id="@+id/clear_and_next_btns"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_clear_waypoint"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorDarkGrayButton"
-                    android:text="@string/button_clear"
-                    android:fontFamily="@font/sf_semibold"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorWhite"
-                    android:textAllCaps="false"/>
-                <Button
-                    android:id="@+id/btn_next_configure"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="@color/colorWhite"
-                    android:text="@string/button_next"
-                    android:fontFamily="@font/sf_semibold"
-                    android:textSize="15sp"
-                    android:textColor="@color/colorBlack"
-                    android:textAllCaps="false"/>
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_back_to_waypoint_manager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorDarkGrayButton"
-                android:text="@string/button_back_to_waypoint"
-                android:fontFamily="@font/sf_semibold"
-                android:textSize="15sp"
-                android:textColor="@color/colorWhite"
-                android:visibility="gone"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:id="@+id/btn_start_flight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorWhite"
-                android:text="@string/button_start_flight"
-                android:fontFamily="@font/sf_semibold"
-                android:textSize="15sp"
-                android:visibility="gone"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:id="@+id/btn_stop_flight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorDarkGrayButton"
-                android:text="@string/button_stop_flight"
-                android:fontFamily="@font/sf_semibold"
-                android:textSize="15sp"
-                android:textColor="@color/colorWhite"
-                android:visibility="gone"
-                android:textAllCaps="false"/>
-
-
-
-        </LinearLayout>
-
-
-
 
     </RelativeLayout>
 
@@ -185,15 +32,16 @@
     <!-- camera layout-->
     <RelativeLayout
         android:id="@+id/camera_overlay_layout"
-        android:layout_width="200dp"
-        android:layout_height="112dp"
+        android:layout_width="@dimen/overlay_width"
+        android:layout_height="@dimen/overlay_height"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorBlack"
         android:animateLayoutChanges="true"
-        android:layout_margin="16dp">
+        android:background="@color/colorBlack"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp">
 
-        <!-- Widget to see first person view (FPV) -->
+<!--         Widget to see first person view (FPV)-->
         <dji.ux.widget.FPVWidget
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -202,7 +50,8 @@
         <dji.ux.widget.FPVOverlayWidget
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fpv_overlay_widget"/>
+            android:id="@+id/fpv_overlay_widget"
+            android:visibility="visible"/>
 
         <RelativeLayout
             android:id="@+id/maskView"
@@ -210,19 +59,42 @@
             android:layout_height="match_parent"
             android:background="@color/colorTransparent"
             android:visibility="visible"/>
+
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/locate_button_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="@dimen/margin_right_locate_button_layout"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
 
+        <ImageButton
+            android:id="@+id/locate_drone_button"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/translucent_black_background_button"
+            android:padding="32dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/locate_dji_drone"/>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
 
-<!--    &lt;!&ndash; Pre-flight checklist panel &ndash;&gt;-->
-<!--    <dji.ux.panel.PreFlightCheckListPanel-->
-<!--        android:id="@+id/pre_flight_check_panel"-->
-<!--        android:layout_width="400dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/signal"-->
-<!--        custom:excludeItem="ESCStatus"-->
-<!--        android:visibility="gone"/>-->
+        <ImageButton
+            android:id="@+id/locate_me_button"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/translucent_black_background_button"
+            android:padding="32dp"
+            android:src="@drawable/locate_current_location_icon"/>
+
+    </LinearLayout>
+
 
 
 
@@ -292,6 +164,7 @@
 
     <!-- Remainng time widget layout-->
     <dji.ux.widget.RemainingFlightTimeWidget
+        android:id="@+id/remaining_flight_time_widget"
         android:layout_below="@id/signal"
         android:layout_height="27dp"
         android:layout_width="match_parent"
@@ -300,6 +173,272 @@
 
 
 
+    <View
+        android:id="@+id/canvas_target_marking"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/signal"
+        android:visibility="gone"/>
+
+
+
+    <sg.gov.dsta.DroneControl.DrawingView
+        android:id="@+id/drawing_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/signal"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:id="@+id/target_marking_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/remaining_flight_time_widget"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:animateLayoutChanges="true"
+        >
+
+        <TextView
+            android:id="@+id/target_marking_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enable_target_marking"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/sf_regular"
+            android:layout_marginRight="16dp"/>
+
+        <Switch
+            android:id="@+id/target_marking_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"/>
+
+
+    </LinearLayout>
+
+
+
+    <!-- panel layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/waypoint_manager_relative_layout"
+        android:visibility="visible"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/waypoint_manager_linear_layout"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/panel_translucent_black_background"
+            android:padding="16dp"
+            android:layout_alignParentBottom="true"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/panel_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/panel_title_waypoint_manager"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/sf_semibold"
+                android:textSize="22sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorGrayLine"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/panel_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="@string/subtitle_no_waypoints_created"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/sf_regular"
+                android:textSize="15sp"/>
+
+            <Button
+                android:id="@+id/btn_waypoint_mission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_background_button"
+                android:text="@string/button_add_waypoint"
+                android:fontFamily="@font/sf_semibold"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_mission_selector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/dark_grey_background_button"
+                android:text="@string/button_back"
+                android:fontFamily="@font/sf_semibold"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/clear_and_next_btns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_clear_waypoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/dark_grey_background_button"
+                    android:text="@string/button_clear"
+                    android:fontFamily="@font/sf_semibold"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btn_next_configure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/white_background_button"
+                    android:text="@string/button_next"
+                    android:fontFamily="@font/sf_semibold"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorBlack"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_back_to_waypoint_selected_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/dark_grey_background_button"
+                android:text="@string/button_back_to_waypoint"
+                android:fontFamily="@font/sf_semibold"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:visibility="gone"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btn_start_flight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/white_background_button"
+                android:text="@string/button_start_flight"
+                android:fontFamily="@font/sf_semibold"
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btn_stop_flight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/dark_grey_background_button"
+                android:text="@string/button_stop_flight"
+                android:fontFamily="@font/sf_semibold"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:visibility="gone"
+                android:textAllCaps="false"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+<!--     Pre-flight checklist panel -->
+    <dji.ux.panel.PreFlightCheckListPanel
+        android:id="@+id/pre_flight_check_panel"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signal"
+        custom:excludeItem="ESCStatus"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/dashboard_widget_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <dji.ux.widget.dashboard.DashboardWidget
+            android:id="@+id/Compass"
+            android:layout_width="405dp"
+            android:layout_height="91dp"
+            android:layout_marginRight="12dp"
+            tools:ignore="RtlHardcoded"/>
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/downloading_screen_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:paddingBottom="24dp"
+        android:paddingLeft="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/download_image_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/downloading_progress_bar"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sf_semibold"
+            android:text="Downloading image from DJI Drone"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/downloading_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:indeterminate="true"
+            android:max="100"
+            android:minWidth="350dp"
+            android:progress="75"
+            android:indeterminateTint="@color/colorWhite"
+
+            />
+
+    </RelativeLayout>
 
 
 

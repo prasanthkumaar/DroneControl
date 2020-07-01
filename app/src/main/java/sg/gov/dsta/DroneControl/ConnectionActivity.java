@@ -43,16 +43,16 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
     private static final String TAG = ConnectionActivity.class.getName();
 
 
-
-
+    //UI Elements
 
     private Button mStartBtn;
-
     private TextView mTitle;
     private TextView mSubtitle;
-
     private TextView mVersionControl;
 
+
+
+    //Permission List
 
     private static final String[] REQUIRED_PERMISSION_LIST = new String[]{
             Manifest.permission.VIBRATE,
@@ -69,9 +69,14 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.READ_PHONE_STATE,
     };
+
     private List<String> missingPermission = new ArrayList<>();
     private AtomicBoolean isRegistrationInProgress = new AtomicBoolean(false);
     private static final int REQUEST_PERMISSION_CODE = 12345;
+
+
+
+    //Application State Methods
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +91,36 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
         filter.addAction(DJIDemoApplication.FLAG_CONNECTION_CHANGE);
         registerReceiver(mReceiver, filter);
     }
+
+    @Override
+    public void onResume() {
+        Log.e(TAG, "onResume");
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        Log.e(TAG, "onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.e(TAG, "onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.e(TAG, "onDestroy");
+        unregisterReceiver(mReceiver);
+        super.onDestroy();
+    }
+
+
+
+
+    //Methods to check and request for permission
 
     /**
      * Checks if there is any missing permissions, and
@@ -131,6 +166,43 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
             showToast("Missing permissions!!!");
         }
     }
+
+
+
+
+    //UI Setup
+    private void initUI() {
+
+        Window window = getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setNavigationBarColor(Color.BLACK);
+        }
+
+
+
+        mStartBtn = (Button) findViewById(R.id.btn_open);
+        mStartBtn.setOnClickListener(this);
+        mStartBtn.setVisibility(View.INVISIBLE);
+
+        mVersionControl = findViewById(R.id.version_control);
+        String appVersion = getResources().getString(R.string.app_version);
+        String sdkVersion = DJISDKManager.getInstance().getSDKVersion();
+        mVersionControl.setText(getResources().getString(R.string.version_control, sdkVersion, appVersion));
+
+        mTitle = findViewById(R.id.launch_page_title);
+        String connectingString = getResources().getString(R.string.connecting);
+        mTitle.setText(connectingString);
+
+        mSubtitle = findViewById(R.id.launch_page_subtitle);
+        String subtitleString = getResources().getString(R.string.connecting_message);
+        mSubtitle.setText(subtitleString);
+
+
+    }
+
+
+
+    //Drone Setup
 
     private void startSDKRegistration() {
         if (isRegistrationInProgress.compareAndSet(false, true)) {
@@ -198,68 +270,6 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override
-    public void onResume() {
-        Log.e(TAG, "onResume");
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        Log.e(TAG, "onPause");
-        super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        Log.e(TAG, "onStop");
-        super.onStop();
-    }
-
-    public void onReturn(View view){
-        Log.e(TAG, "onReturn");
-        this.finish();
-    }
-
-    @Override
-    protected void onDestroy() {
-        Log.e(TAG, "onDestroy");
-        unregisterReceiver(mReceiver);
-        super.onDestroy();
-    }
-
-    private void initUI() {
-
-        Window window = getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setNavigationBarColor(Color.BLACK);
-        }
-
-
-
-        mStartBtn = (Button) findViewById(R.id.btn_open);
-        mStartBtn.setOnClickListener(this);
-
-
-        //set to invisible
-        mStartBtn.setVisibility(View.VISIBLE);
-
-        mVersionControl = findViewById(R.id.version_control);
-        String appVersion = getResources().getString(R.string.app_version);
-        String sdkVersion = DJISDKManager.getInstance().getSDKVersion();
-        mVersionControl.setText(getResources().getString(R.string.version_control, sdkVersion, appVersion));
-
-        mTitle = findViewById(R.id.launch_page_title);
-        String connectingString = getResources().getString(R.string.connecting);
-        mTitle.setText(connectingString);
-
-        mSubtitle = findViewById(R.id.launch_page_subtitle);
-        String subtitleString = getResources().getString(R.string.connecting_message);
-        mSubtitle.setText(subtitleString);
-
-
-    }
-
     protected BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
         @Override
@@ -286,17 +296,6 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
 
 
 
-            //to delete
-//            String str = mProduct instanceof Aircraft ? "DJIAircraft" : "DJIHandHeld";
-//            mTextConnectionStatus.setText("Status: " + str + " connected");
-//
-//            if (null != mProduct.getModel()) {
-//                mTextProduct.setText("" + mProduct.getModel().getDisplayName());
-//            } else {
-//                mTextProduct.setText(R.string.product_information);
-//            }
-
-
         } else {
 
             // when disconnected
@@ -308,9 +307,6 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
             mTitle.setText(connectingString);
             mSubtitle.setVisibility(View.VISIBLE);
 
-            //to delete
-//            mTextProduct.setText(R.string.product_information);
-//            mTextConnectionStatus.setText(R.string.connection_loose);
 
         }
     }
@@ -318,6 +314,7 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
 
 
 
+    //OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -328,6 +325,15 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
                     GooglePlayServicesUtil.getErrorDialog(status, this, status);
                     showToast("Cannot run without Google Play, please check！");
                 } else {
+
+
+                    try {
+                        Thread.sleep(80);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -338,6 +344,10 @@ public class ConnectionActivity extends Activity implements View.OnClickListener
         }
     }
 
+
+
+
+    //Supporting Methods
     private void showToast(final String toastMsg) {
         runOnUiThread(new Runnable() {
             @Override

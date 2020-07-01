@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="660dp"
     android:layout_height="310dp"
-    android:background="@color/colorTransparent">
+    android:background="@drawable/panel_white_background">
 
     <ImageView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:visibility="visible"
         android:layout_centerInParent="true"
         android:paddingVertical="32dp"
-        android:background="@color/colorWhite">
+        android:background="@drawable/panel_white_background">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="4dp"
-                    android:background="@color/colorBlack"
+                    android:background="@drawable/black_background_button"
                     android:text="@string/button_upload"
                     android:fontFamily="@font/sf_semibold"
                     android:textSize="15sp"
@@ -116,7 +116,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="4dp"
-                    android:background="@color/colorBlack"
+                    android:background="@drawable/black_background_button"
+
                     android:text="@string/button_cancel_configuration"
                     android:fontFamily="@font/sf_semibold"
                     android:textSize="15sp"

@@ -22,9 +22,9 @@
 
     //waypoint mission panel states
     <string name="panel_title_waypoint_manager">Waypoint Manager</string>
-    <string name="panel_title_flight_plan_uploaded">Flight Plan Uploaded</string>
-    <string name="panel_title_flight_ongoing">Flight Ongoing</string>
-    <string name="panel_title_flight_stopped">Flight Stopped</string>
+    <string name="panel_title_mission_uploaded">Mission Uploaded</string>
+    <string name="panel_title_mission_ongoing">Mission Ongoing</string>
+    <string name="panel_title_mission_over">Mission Over</string>
 
     //waypoint mission panel subtitle
     <string name="subtitle_no_waypoints_created">No waypoints created</string>
@@ -36,8 +36,8 @@
     <string name="button_clear">Clear</string>
     <string name="button_next">Next</string>
     <string name="button_back_to_waypoint">Back To Waypoint Manager</string>
-    <string name="button_start_flight">Start Flight</string>
-    <string name="button_stop_flight">Stop Flight</string>
+    <string name="button_start_flight">Start Mission</string>
+    <string name="button_stop_flight">Stop Mission</string>
     <string name="button_restart_flight">Restart Flight</string>
 
 
@@ -48,6 +48,11 @@
     <string name="config_settings_speed">SPEED</string>
     <string name="config_settings_post_flight_action">POST-FLIGHT ACTION</string>
     <string name="config_settings_heading">HEADING</string>
+    <string name="enable_target_marking">Enable Target Marking</string>
+    <string name="disable_target_marking">Disable Target Marking</string>
+    <string name="dialog_target_marking_title">Select Target Type</string>
+    <string name="button_done">Done</string>
+    <string name="dialog_target_marking_textview">TARGET TYPE</string>
 
 
 </resources>

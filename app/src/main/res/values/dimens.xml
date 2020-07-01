@@ -6,4 +6,14 @@
 
 
     <dimen name="config_settings_caps_text">12sp</dimen>
+    <dimen name="button_radius_large">4dp</dimen>
+    <dimen name="panel_radius">4dp</dimen>
+
+    <dimen name="map_dx">-160dp</dimen>
+    <dimen name="map_dy">40dp</dimen>
+
+    <dimen name="button_radius_xlarge">8dp</dimen>
+    <dimen name="overlay_width">213dp</dimen>
+    <dimen name="overlay_height">120dp</dimen>
+    <dimen name="margin_right_locate_button_layout">229dp</dimen>
 </resources>
